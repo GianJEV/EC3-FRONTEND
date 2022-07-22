@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Docente } from '../model/docente';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DocenteService {
+
+  docenteActualizar = new Subject<Docente[]>();
+
   private url: string = "http://localhost:8080/docente"
 
   constructor(private http: HttpClient) { }
@@ -20,5 +24,9 @@ export class DocenteService {
 
   editar(docente:Docente){
     return this.http.put(this.url, docente)
+  }
+
+  registrar(docente:Docente){
+    return this.http.post(this.url, docente)
   }
 }

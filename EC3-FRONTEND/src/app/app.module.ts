@@ -9,6 +9,9 @@ import { DocenteComponent } from './views/docente/docente.component';
 import { CarreraComponent } from './views/carrera/carrera.component';
 import { SedeComponent } from './views/sede/sede.component';
 import { DialogComponentEstudiante } from './views/estudiante/dialog/dialog.component';
+import { DialogComponentDocente } from './views/docente/dialog/dialog.component';
+import { DialogComponentSede } from './views/sede/dialog/dialog.component';
+import { DialogComponentCarrera } from './views/carrera/dialog/dialog.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 //ANGULAR MATERIAL
 import {MatTableModule} from '@angular/material/table';
@@ -34,6 +37,9 @@ import { SedeModalComponent } from './views/sede/sede-modal/sede-modal.component
     CarreraComponent,
     SedeComponent,
     DialogComponentEstudiante,
+    DialogComponentDocente,
+    DialogComponentSede,
+    DialogComponentCarrera,
     EstudianteModalComponent,
     DocenteModalComponent,
     CarreraModalComponent,

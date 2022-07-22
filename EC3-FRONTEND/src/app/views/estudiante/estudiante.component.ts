@@ -28,6 +28,7 @@ export class EstudianteComponent implements OnInit {
     this.estudianteService.listar().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
     })
+    //PARA ACTUALIZAR EN TIEMPO REAL
     this.estudianteService.estudianteActualizar.subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
     })

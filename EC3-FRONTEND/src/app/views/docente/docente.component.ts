@@ -3,7 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Docente } from 'src/app/model/docente';
 import { DocenteService } from 'src/app/service/docente.service';
-import { DialogComponent } from './dialog/dialog.component';
+import { DialogComponentDocente } from './dialog/dialog.component';
+import { DocenteModalComponent } from './docente-modal/docente-modal.component';
 
 @Component({
   selector: 'app-docente',
@@ -27,10 +28,13 @@ export class DocenteComponent implements OnInit {
     this.docenteService.listar().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
     })
+    this.docenteService.docenteActualizar.subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
+    })
   }
 
   onEliminar(id: number){
-    let dialogRef = this.dialog.open(DialogComponent,{
+    let dialogRef = this.dialog.open(DialogComponentDocente,{
     });
     dialogRef.afterClosed().subscribe(estado =>{
       if (estado) {
@@ -41,6 +45,15 @@ export class DocenteComponent implements OnInit {
         })
       }
      
+    })
+  }
+
+  abrirModal(docente?: Docente){
+    let doc = docente != null ? docente: new Docente();
+    this.dialog.open(DocenteModalComponent,{
+      width: '25%',
+      height: '30%',
+      data: doc
     })
   }
 
